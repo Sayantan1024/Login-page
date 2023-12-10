@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<!--CSS Styles -->
+
+<style>
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./computer\ background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.circular-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    position: absolute;
+    top: 17%;
+    left: 45%;
+}
+
+.circular-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: black;
+    position: absolute;
+    text-align: center;
+    top: 8%;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url(./smartphone\ size.jpg);
+    }
+    h1 {
+        display: block;
+        width: 70%;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        color: black;
+        text-align: center;
+        left: 15%;
+        top: 4%;
+    }
+    .circular-container {
+        width: 150px;
+        height: 150px;
+        border: 2px solid black;
+        border-radius: 50%;
+        display: flex;
+        left: 30%;
+    }
+}
+
+.login-container {
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.input-container {
+    text-align: left;
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"]
+input[type="email"]
+input[type="password"]
+input[type="password"]
+{
+    width: 100%;
+}
+
+input {
+    font-size: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+button {
+    background-color: #00ff37;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #57c218;
+}
+
+</style>
+<body>
+    <h1>An Initiative by the Ministry of Farming and Agriculture</h1>
+    <div class="circular-container">
+        <img src="./logo.jpeg">
+    </div>
+    <div class="login-container">
+        <form action="login.php" method="POST"> <!-- Replace 'login.php' with your server-side script -->
+            <div class="input-container">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="musername" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-container">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <button type="submit">Login</button>
+
+            <script>
+                const password = document.getElementById("password");
+                const confirm_password = document.getElementById("confirm_password");
+            
+                function validatePassword() {
+                    if (password.value !== confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords do not match");
+                    } else {
+                        confirm_password.setCustomValidity("");
+                    }
+                }
+                password.addEventListener("input", validatePassword);
+                confirm_password.addEventListener("input", validatePassword);
+            </script>
+            
+        </form>
+    </div>
+</body>
+</html>
+
+
